@@ -9,6 +9,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: #172b4d;
   background: #3282b8;
+  display: inline-block;
+  width: 100%;
+  min-width: 1064px;
+}
+
+#root {
+  min-width: 100%;
+  display: inline-block;
 }
 
 code {

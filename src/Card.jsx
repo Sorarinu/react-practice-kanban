@@ -26,11 +26,11 @@ const SCard = styled.div`
 `
 
 
-function Card({title, removeCard}) {
+function Card({ title, removeCard }) {
     return (
         <SCard>
-            <p>{title}</p>
-            <SDeleteButton onClick={removeCard}>削除</SDeleteButton>
+            <p>{ title }</p>
+            <SDeleteButton onClick={ removeCard }>削除</SDeleteButton>
         </SCard>
     )
 }

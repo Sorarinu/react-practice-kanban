@@ -54,27 +54,17 @@ const SRemoveCardListButton = styled(SButton)`
 `
 
 function App() {
+    const localCardListsString = window.localStorage.getItem('cardLists')
     const [state, setState] = useState({
-        cardLists: [
-            {
-                title: 'リストタイトルA',
-                cards: [{ title: 'カードタイトル' }]
-            },
-            {
-                title: 'リストタイトルB',
-                cards: [{ title: 'カードタイトル' }]
-            },
-            {
-                title: 'リストタイトルC',
-                cards: [{ title: 'カードタイトル' }]
-            }
-        ],
+        cardLists: localCardListsString === '' ? [] : JSON.parse(localCardListsString),
         targetListIndex: -1, // Listを指定した動作を実現するため
         shownCreateCardModal: false,
         shownCreateCardListModal: false // カードリスト追加のモーダル表示制御変数
     })
 
     const { cardLists, targetListIndex, shownCreateCardModal, shownCreateCardListModal } = state
+
+    localStorage.setItem('cardLists', JSON.stringify(cardLists))
 
     const addCardList = (newCardList) => {
         cardLists.push({ cards: [], ...newCardList })
